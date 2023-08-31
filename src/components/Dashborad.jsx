@@ -1,19 +1,29 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import map from '../assets/map.JPG'
 
 const Dashboard = () => {
 
     let id = useOutletContext();
 
-    let [currentUserId , setCurrentUserId] = useState(id);
-    let [currentUser , setCurrentUser] = useState(null);
+    // users states
+    let [currentUser , setCurrentUser] = useState(null); // to store current user details
+    let [users , setUsers] = useState(null); // to store all users
 
+    // chats states
+    let [currentChat , setCurrentChat] = useState(null); // to store all users
+    let [chatboxOpen , setChatboxOpen] = useState(false); // to control chatbox
+    let [messageboxOpen , setMessageboxOpen] = useState(true); // to control messagebox
+
+
+    //  fetching new user wheneever another user is called from the profile bar
     useEffect(()=>{
         fetch("https://panorbit.in/api/users.json")
         .then(res=>res.json())
         .then((data)=>{
-            let user = data.users.find((user)=>{return user.id==currentUserId});
+            let user = data.users.find((user)=>{return user.id==id});
             setCurrentUser(user);
+            setUsers(data.users)
         })
     } , [id])
 
@@ -21,6 +31,8 @@ const Dashboard = () => {
     return ( 
         <div className="dashboard">
             {currentUser && <div className="user-detail">
+
+                {/* first coloumn to diplay user details */}
                 <div className="c1">
                     <img src={currentUser.profilepicture} alt="userpic" />
                     <h2>{currentUser.name}</h2>
@@ -43,8 +55,9 @@ const Dashboard = () => {
 
                 <div className="verticle-divider"></div>
 
+                {/* secongd coloumn to diplay user address  details */}
                 <div className="c2">
-                    <h1>Address:</h1>
+                    <h2>Address:</h2>
                     <div className="address-details">
                         <div>
                             <span>Street : </span> <span>{currentUser.address.street}</span>
@@ -53,8 +66,84 @@ const Dashboard = () => {
                             <span>Zipcode : </span> <span>{currentUser.address.zipcode}</span>
                         </div>
                     </div>
+                    <div className="area-map">
+                        <img src={map} alt="" />
+                        <p>
+                            Lat: <span>{currentUser.address.geo.lat}</span>   
+                            Long: <span>{currentUser.address.geo.lat}</span>   
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>}
+
+
+            {users&& 
+            <div className="chats" style={{bottom : chatboxOpen ? "50px" : "20px" }}>
+                <div className="chathead">
+                    <p><i className='bx bx-comment-minus bx-flip-horizontal' ></i> Chats</p>
+                    <button onClick={()=>{setChatboxOpen(!chatboxOpen)}}>
+                        {chatboxOpen ? <i className='bx bx-chevron-down'></i> 
+                                    :  <i className='bx bx-chevron-up'></i>}
+                    </button>
+                </div>
+                {chatboxOpen && 
+                    <ul>
+                    {
+                        users.map((user)=>{
+                        return(<li onClick={()=>{setCurrentChat(user)}}>
+                                    <div>
+                                    <img src={user.profilepicture} alt="user-chat-pic" />
+                                    <p>{user.name}</p>
+                                    </div>
+                                    <span style={{backgroundColor : user.id%2==0 ? "green" : "gainsboro"}}></span>
+                            </li>)
+                        })
+                    }
+                    </ul>}
+            </div>}
+
+
+            {currentChat && 
+            <div className="messagebox">
+                <div className="message-head">
+                    <div>
+                        <img src={currentChat.profilepicture} alt="current-chat"/>
+                        <p>{currentChat.name}</p>
+                    </div>
+                    <div>
+                        <button onClick={()=>{setMessageboxOpen(!messageboxOpen)}}>
+                            {messageboxOpen ? <i className='bx bx-chevron-down'></i>
+                                            : <i className='bx bx-chevron-up'></i>}
+                        </button>
+                        <button onClick={()=>{setCurrentChat(null)}}><i className='bx bx-x'></i></button>
+                    </div>
+                </div>
+
+                {messageboxOpen && <div className="message-interface">
+                    <recevied>Hello 🔆  </recevied>
+                    <recevied>Good morning , how are you !!</recevied>
+
+                    <me>Hi , good morning ⛅ </me>
+                    <me>doing good </me>
+                    <me>hbu</me>
+
+                    <recevied>same here</recevied>
+                    <recevied>let's catch up if you are free 🥶  </recevied>
+
+                    <me>Sure 😜 </me>
+
+
+                </div>}
+
+                <div className="typer">
+                    <input type="text" placeholder="Tyepe our message here"/>
+                    <button> <i className='bx bxs-send' ></i> </button>
                 </div>
             </div>}
+
+
         </div>
     );
 }

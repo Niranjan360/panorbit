@@ -21,6 +21,7 @@ const Home = () => {
             <Navbar currentPage={page} id={id}/>
             <Outlet context={id} />
         </div>
+        
     </div> );
 }
 export default Home;

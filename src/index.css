@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 
 *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  text-decoration: none;
 }
 body {  
   -webkit-font-smoothing: antialiased;
@@ -90,24 +93,99 @@ nav{
   justify-content: space-between;
   align-items: center;
 }
-nav div{
+nav>div:nth-child(2){
   display: flex;
   justify-content: center;
   align-items: center;
 }
 nav h3{
-  font-weight: 400;
+  font-weight: 500;
   color: rgb(65, 65, 65);
 }
-nav img{
+.current-user>img{
   width: 30px;
   height: 30px;
   margin: 0px 10px;
   border-radius: 50%;
 }
-nav span{
+.current-user span{
   color: rgb(65, 65, 65);
 }
+.current-user:hover{
+cursor: pointer;
+}
+.popup{
+  z-index: 1000;
+  position: absolute;
+  top: 80px;
+  right: 150px;
+
+  background-color: white;
+  width: 210px;
+  height: auto;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: rgba(63, 63, 63, 0.384) 0px 0px 20px;
+}
+.popup>img{
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 3px auto;
+}
+.popup h3{
+  color: rgb(58, 58, 58);
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 3px;
+}
+.popup>p{
+  color: rgb(194, 194, 194);
+  text-align: center;
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+.other-users a{
+  text-decoration: none;
+  border-top: solid 1px rgb(211, 211, 211);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.other-users a img{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 0px 4px;
+}
+.other-users p{
+  color: rgb(114, 114, 114);
+  text-align: center;
+  font-size: 11px;
+}
+
+.popup button{
+  display: block;
+  background-color: #D55151;
+  padding: 5px 10px;
+  margin: auto;
+  border: solid 1px #D55151;
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+}
+.popup button:hover{
+  background-color: white;
+  color: #D55151;
+}
+
+
+
+
 
 /* --------------side-cont------------- */
 .side-cont{
@@ -207,7 +285,8 @@ nav span{
   display: block;
   text-align: left;
   margin-left: 15px;
-  color: rgb(71, 71, 71);
+  color: rgb(114, 114, 114);
+  font-weight:500;
 }
 hr{
   width: 70%;
@@ -231,7 +310,8 @@ hr{
   display: block;
   text-align: left;
   margin-left: 15px;
-  color: rgb(71, 71, 71);
+  color: rgb(114, 114, 114);
+  font-weight:500;
 }
 
 .verticle-divider{
@@ -240,11 +320,16 @@ hr{
   background-color: rgb(211, 211, 211);
   margin: 20px 30px;
 }
+.c2 h2{
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(153, 152, 152);
+}
 .address-details{
   margin: 15px 0px;
 }
 .address-details div{
-  width: 100%;
+  width: 300px;
   display: grid;
   grid-template-columns: 40% 60%;
   row-gap: 10px;
@@ -258,5 +343,196 @@ hr{
   display: block;
   text-align: left;
   margin-left: 15px;
-  color: rgb(71, 71, 71);
+  color: rgb(114, 114, 114);
+  font-weight:500;
+}
+
+.area-map img{
+  width: 500px;
+  height: 280px;
+  margin-left: 50px;
+  border-radius: 13px;
+  filter: contrast(90%);
+}
+.area-map p{
+  color: rgb(153, 152, 152) ;
+  font-size: 13px;
+  text-align: right;
+}
+.area-map p span{
+  font-weight: 500;
+  color: rgb(66, 66, 66);
+  margin-right: 10px;
+}
+
+
+
+/*-------------------chatbox---------------  */
+
+
+.chats{
+  position: absolute;
+  bottom: 20px;
+  right: 140px;
+}
+.chathead{
+  background-color: #3466C8;
+  width: 170px;
+  padding: 8px;
+  padding-bottom: 5px;
+  border-radius: 8px 8px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+.chathead button{
+  color: white;
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+}
+.chats ul{
+  background-color: white;
+  list-style: none;
+  width: 100%;
+  height: 260px;
+  border: solid 1px #3466C8;
+  border-right: none;
+  overflow: scroll;
+}
+.chats ul li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 7px;
+}
+.chats ul li:hover{
+  cursor:default ;
+}
+
+.chats ul li div{
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+
+.chats ul li div img{
+  width: 25px;
+  height: 25px;
+  margin: 0px 7px;
+  border-radius: 50%;
+}
+.chats ul li span{
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+
+.chats ul::-webkit-scrollbar {
+  width: 3px;
+  margin-right: 4px;
+}
+.chats ul::-webkit-scrollbar-thumb {
+  background-color: rgb(211, 211, 211);
+  border-radius: 10px;
+  margin-right: 4px;
+}
+
+
+/*-------------------messagebox---------------  */
+
+.messagebox{
+  position: absolute;
+  right: 350px;
+  bottom: 20px;
+  width: 200px;
+}
+.message-head{
+  background-color: #3466C8;
+  padding: 8px;
+  padding-bottom: 5px;
+  border-radius: 8px 8px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 10px;
+}
+.message-head img{
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+}
+.message-head div:first-child{
+  display: flex;
+  align-items: center;
+}
+.message-head p{
+  margin-left:4px;
+  width: 80px;
+}
+.message-head button{
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 18px;
+}
+.message-interface{
+  width: 100%;
+  height: 190px;
+  background-color: white;
+  padding: 5px 5px 1px 5px;
+  border: solid 1px #3466C8;
+  overflow: scroll;
+}
+recevied{
+  display: block;
+  background-color: rgb(244, 244, 244);
+  padding: 8px 4px;
+  font-size: 11px;
+  width: max-content;
+  /* min-width: 30px; */
+  /* max-width: 100px; */
+  margin: 4px;
+  
+}
+me{
+  display: block;
+  background-color: rgb(244, 244, 244);
+  padding: 8px 4px;
+  font-size: 11px;
+  width: max-content;
+  max-width: 100px;
+  margin: 10px 0px;
+  margin-left: 50px;
+}
+
+.message-interface::-webkit-scrollbar {
+  width: 3px;
+  margin-right: 4px;
+}
+.message-interface::-webkit-scrollbar-thumb {
+  background-color: rgb(211, 211, 211);
+  border-radius: 10px;
+  margin-right: 4px;
+}
+
+.typer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px rgb(211, 211, 211);
+}
+.typer input{
+  background-color: white;
+  padding: 5px;
+  border: none;
+}
+.typer button{
+  background-color: white;
+  border: none;
+}
+.typer button i{
+  color: #3466C8;
 }
