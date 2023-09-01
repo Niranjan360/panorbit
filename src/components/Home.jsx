@@ -14,13 +14,12 @@ const Home = () => {
     }
 
     return ( 
-    <div className="home-cont">
+    <div className="home-cont" >
         <Sidebar currentPage={currentPage}/>
         <div>
-            <Navbar currentPage={page} id={id}/>
+            <Navbar currentPage={page} id={id} />
             <Outlet context={id} />
         </div>
-        
     </div> );
 }
 export default Home;

@@ -1,7 +1,7 @@
 import { useEffect , useState} from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = ({currentPage , id}) => {
+const Navbar = ({currentPage , id , closeMenu}) => {
 
     let [currentUser , setCurrentUser] = useState(null); // to store current user
     let [otherUsers , setOtherUsers] = useState(null);   // to store other users detail to show suggestions in popup box
@@ -31,15 +31,21 @@ const Navbar = ({currentPage , id}) => {
     // logout function to close popup bar
     let handleLinkClicks = ()=>{
         setPopup(false);
+
+    }
+
+    // function to close popup 
+    let closePop = ()=>{
+        setPopup(!popup)
     }
 
     return ( 
-    <nav>
+    <nav onClick={closePop}>
         <h3>{currentPage}</h3>
 
 
         {currentUser && 
-        <div className="current-user" onClick={()=>{setPopup(!popup)}}>
+        <div className="current-user">
             <img src={currentUser.profilepicture} alt="" />
             <span>{currentUser.name}</span>
         </div>}
