@@ -80,7 +80,7 @@ const Dashboard = () => {
 
 
             {users&& 
-            <div className="chats" style={{bottom : chatboxOpen ? "50px" : "20px" }}>
+            <div className="chats" style={{bottom : chatboxOpen ? "40px" : "5px" }}>
                 <div className="chathead">
                     <p><i className='bx bx-comment-minus bx-flip-horizontal' ></i> Chats</p>
                     <button onClick={()=>{setChatboxOpen(!chatboxOpen)}}>
@@ -122,19 +122,25 @@ const Dashboard = () => {
                 </div>
 
                 {messageboxOpen && <div className="message-interface">
-                    <recevied>Hello 🔆  </recevied>
-                    <recevied>Good morning , how are you !!</recevied>
+                    <div className="left-chat">
+                        <recevied>Hello 🔆  </recevied>
+                        <recevied>Good morning , how are you !!</recevied>
+                    </div>
 
-                    <me>Hi , good morning ⛅ </me>
-                    <me>doing good </me>
-                    <me>hbu</me>
+                    <div className="right-chat">
+                        <me>Hi , good morning ⛅ </me>
+                        <me>doing good </me>
+                        <me>hbu</me>
+                    </div>
 
-                    <recevied>same here</recevied>
-                    <recevied>let's catch up if you are free 🥶  </recevied>
+                    <div className="left-chat">
+                        <recevied>same here</recevied>
+                        <recevied>let's catch up if you are free 🥶  </recevied>
+                    </div>
 
-                    <me>Sure 😜 </me>
-
-
+                    <div className="right-chat">
+                        <me>Sure 😜 </me>
+                    </div>
                 </div>}
 
                 <div className="typer">

@@ -11,7 +11,6 @@ const Home = () => {
     // function to change page name in navbar , once click has been done is sidebar
     let currentPage = (crntPage)=>{
         setPage(crntPage);
-        console.log(crntPage);
     }
 
     return ( 

@@ -28,18 +28,19 @@ body {
 .loginbox{
   background-color: white;
   width: 400px;
-  height: 350px;
+  height: 380px;
   padding-bottom: 10px;
   border-radius: 15px;
   box-shadow: rgba(71, 71, 71, 0.391) 0px 0px 20px;
 }
 .login-cont h1{
-  color: rgb(71, 71, 71);
+  color: rgb(106, 106, 106);
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
+  font-weight: 500;
 
   background-color: rgb(240, 240, 240);
-  padding: 15px 0px;
+  padding: 25px 0px;
   border-radius: 15px 15px 0px 0px;
 }
 .login-cont ul{
@@ -65,12 +66,12 @@ body {
   border-radius: 1px;
 }
 .login-cont ul li a{
-  color: rgb(58, 58, 58);
+  color: rgb(104, 104, 104);
   display: flex;
   align-items: center;
   text-decoration: none;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .login-cont ul li:hover{
@@ -123,7 +124,7 @@ cursor: pointer;
   background-color: white;
   width: 210px;
   height: auto;
-  padding: 30px;
+  padding: 25px;
   border-radius: 15px;
   box-shadow: rgba(63, 63, 63, 0.384) 0px 0px 20px;
 }
@@ -170,7 +171,7 @@ cursor: pointer;
   display: block;
   background-color: #D55151;
   padding: 5px 10px;
-  margin: auto;
+  margin:  10px auto;
   border: solid 1px #D55151;
   border-radius: 20px;
 
@@ -195,6 +196,7 @@ cursor: pointer;
   border-radius: 20px; 
   display: flex;
   align-items: center;
+  position: relative;
 }
 .side-cont ul{
   list-style: none;
@@ -216,6 +218,27 @@ cursor: pointer;
   margin: auto;
   font-weight: 400;
 }
+.pointer{
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  right: -7%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
 
 /* ----------comming soon---------------  */
 .empty-page{
@@ -285,7 +308,7 @@ cursor: pointer;
   display: block;
   text-align: left;
   margin-left: 15px;
-  color: rgb(114, 114, 114);
+  color: rgb(70, 70, 70);
   font-weight:500;
 }
 hr{
@@ -294,7 +317,11 @@ hr{
   border-bottom: solid 1px rgb(211, 211, 211);
   margin: 10px auto;
 }
-
+.company-details h2{
+  font-size: 17px;
+  font-weight: 500;
+  color: rgb(153, 152, 152);
+}
 .company-details div{
   width: 100%;
   display: grid;
@@ -310,7 +337,7 @@ hr{
   display: block;
   text-align: left;
   margin-left: 15px;
-  color: rgb(114, 114, 114);
+  color: rgb(70, 70, 70);
   font-weight:500;
 }
 
@@ -321,7 +348,7 @@ hr{
   margin: 20px 30px;
 }
 .c2 h2{
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 500;
   color: rgb(153, 152, 152);
 }
@@ -343,7 +370,7 @@ hr{
   display: block;
   text-align: left;
   margin-left: 15px;
-  color: rgb(114, 114, 114);
+  color: rgb(70, 70, 70);
   font-weight:500;
 }
 
@@ -352,7 +379,7 @@ hr{
   height: 280px;
   margin-left: 50px;
   border-radius: 13px;
-  filter: contrast(90%);
+  filter: invert(0.03);
 }
 .area-map p{
   color: rgb(153, 152, 152) ;
@@ -372,7 +399,7 @@ hr{
 
 .chats{
   position: absolute;
-  bottom: 20px;
+  bottom: 5px;
   right: 140px;
 }
 .chathead{
@@ -446,7 +473,7 @@ hr{
 .messagebox{
   position: absolute;
   right: 350px;
-  bottom: 20px;
+  bottom: 5px;
   width: 200px;
 }
 .message-head{
@@ -486,26 +513,39 @@ hr{
   border: solid 1px #3466C8;
   overflow: scroll;
 }
+.left-chat{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.right-chat{
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+
 recevied{
   display: block;
   background-color: rgb(244, 244, 244);
   padding: 8px 4px;
+  border-radius: 4px;
   font-size: 11px;
   width: max-content;
   /* min-width: 30px; */
   /* max-width: 100px; */
-  margin: 4px;
-  
+  margin: 4px 0pc;
 }
 me{
   display: block;
   background-color: rgb(244, 244, 244);
   padding: 8px 4px;
+  border-radius: 4px;
   font-size: 11px;
   width: max-content;
   max-width: 100px;
-  margin: 10px 0px;
-  margin-left: 50px;
+  margin: 4px 0px;
 }
 
 .message-interface::-webkit-scrollbar {
@@ -520,18 +560,26 @@ me{
 
 .typer{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border: solid 1px rgb(211, 211, 211);
 }
 .typer input{
   background-color: white;
+  width: 170px;
   padding: 5px;
-  border: none;
+  border: solid 1px transparent;
 }
+.typer input:focus{
+  border: solid 1px rgb(211, 211, 211);
+  outline: none;
+}
+
 .typer button{
   background-color: white;
+  width: 30px;  
   border: none;
+  text-align: center;
 }
 .typer button i{
   color: #3466C8;
