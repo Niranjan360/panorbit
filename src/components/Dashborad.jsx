@@ -144,7 +144,7 @@ const Dashboard = () => {
                 </div>}
 
                 <div className="typer">
-                    <input type="text" placeholder="Tyepe our message here"/>
+                    <input type="text" placeholder="Type your message here"/>
                     <button> <i className='bx bxs-send' ></i> </button>
                 </div>
             </div>}
